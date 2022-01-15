@@ -5,8 +5,7 @@
 package frc.robot.commands;
 
 import java.util.TimerTask;
-
-import edu.wpi.first.wpilibj.Timer;
+import java.util.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
@@ -33,13 +32,13 @@ public class IncrementHopperCommand extends CommandBase {
   @Override
   public void initialize() {
     timer_ = new Timer();
-    // timer_.schedule(new TimerTask() {
-    //   @Override
-    //   public void run() {
-    //     SmartDashboard.putString("Hopper status", "***Hopper Jammed***");
-    //     end(false);
-    //   }
-    // }, 750L);
+    timer_.schedule(new TimerTask() {
+      @Override
+      public void run() {
+        SmartDashboard.putString("Hopper status", "***Hopper Jammed***");
+        end(false);
+      }
+    }, 750L);
     initialState_ = hopperSubsystem_.getHopperSwitchState();
     lastState_ = hopperSubsystem_.getHopperSwitchState();
     increment_ = 0;
