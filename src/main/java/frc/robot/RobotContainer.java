@@ -15,7 +15,6 @@ import frc.robot.subsystems.CartridgeSubsystem;
 import frc.robot.subsystems.ChassisSubsystem;
 import frc.robot.subsystems.HopperSubsystem;
 import frc.robot.subsystems.LauncherPIDSubsystem;
-import frc.robot.subsystems.LauncherSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 
@@ -28,7 +27,6 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ChassisSubsystem chassisSubsystem_ = new ChassisSubsystem();
-  private final LauncherSubsystem launcherSubsystem_ = new LauncherSubsystem();
   private final LauncherPIDSubsystem launcherPIDSubsystem_ = new LauncherPIDSubsystem();
   private final CartridgeSubsystem cartridgeSubsystem_ = new CartridgeSubsystem();
   private final HopperSubsystem hopperSubsystem_ = new HopperSubsystem();
@@ -75,12 +73,6 @@ public class RobotContainer {
    * @return
    */
   public ChassisSubsystem getChassisSubsystem() { return chassisSubsystem_; }
-
-  /**
-   * retrieves launcher subsystem
-   * @return
-   */
-  public LauncherSubsystem getLauncherSubsystem() { return launcherSubsystem_; }
 
   /**
    * retrieves cartridge subsystem

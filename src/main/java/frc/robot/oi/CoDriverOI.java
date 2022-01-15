@@ -11,8 +11,6 @@ import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.commands.ChangeLauncherSpeedCommand;
 import frc.robot.commands.DisableElevatorCommand;
-//import edu.wpi.first.wpilibj.buttons.JoystickButton;
-//import edu.wpi.first.wpilibj.GenericHID;
 import frc.robot.commands.IncrementHopperCommand;
 import frc.robot.commands.ReleaseBallPerSecondThroughHopperCommandGroup;
 import frc.robot.commands.ReleaseBallThroughCartridgeCommandGroup;
@@ -34,7 +32,7 @@ public class CoDriverOI extends OI {
         back.whenPressed(new IncrementHopperCommand(-0.35, robotContainer));
 
         rightBumper = new JoystickButton(joystick, Constants.RIGHT_BUMPER);
-        rightBumper.whileHeld(new ReleaseBallPerSecondThroughHopperCommandGroup());
+        rightBumper.whileHeld(new ReleaseBallPerSecondThroughHopperCommandGroup(robotContainer));
     
         leftBumper = new JoystickButton(joystick, Constants.LEFT_BUMPER);    
         leftBumper.whenPressed(new ReleaseBallThroughCartridgeCommandGroup());

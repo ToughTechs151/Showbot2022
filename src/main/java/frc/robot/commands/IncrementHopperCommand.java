@@ -59,7 +59,7 @@ public class IncrementHopperCommand extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     hopperSubsystem_.driveHopper(0);
-    timer_.reset();
+    timer_.cancel();
     if (initialState_)
       increment_ = 1;
     else
