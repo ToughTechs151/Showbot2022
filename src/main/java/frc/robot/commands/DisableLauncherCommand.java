@@ -8,12 +8,12 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.LauncherPIDSubsystem;
 
-public class DisableElevatorCommand extends CommandBase {
+public class DisableLauncherCommand extends CommandBase {
   private boolean isFinished_ = false;
   private LauncherPIDSubsystem launcherPIDSubsystem_ = null;
 
   /** Creates a new DisableElevatorCommand. */
-  public DisableElevatorCommand(RobotContainer robotConmtContainer) {
+  public DisableLauncherCommand(RobotContainer robotConmtContainer) {
     launcherPIDSubsystem_ = robotConmtContainer.getLauncherPIDSubsystem();
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(launcherPIDSubsystem_);
@@ -26,8 +26,8 @@ public class DisableElevatorCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    // launcherSubsystem_.disable();
-    // launcherSubsystem_.stop();
+    launcherPIDSubsystem_.disable();
+    launcherPIDSubsystem_.stop();
     isFinished_ = true;
   }
 

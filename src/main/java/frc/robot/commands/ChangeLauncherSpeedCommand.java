@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.LauncherPIDSubsystem;
@@ -18,6 +19,7 @@ public class ChangeLauncherSpeedCommand extends CommandBase {
   public ChangeLauncherSpeedCommand(double setpoint, RobotContainer robotContainer) {
     launcherPIDSubsystem_ = robotContainer.getLauncherPIDSubsystem();
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(launcherPIDSubsystem_);
     this.setpoint_ = setpoint;
   }
 
@@ -28,6 +30,7 @@ public class ChangeLauncherSpeedCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    SmartDashboard.putNumber("ChangeLauncherSpeedCommand", setpoint_);
     launcherPIDSubsystem_.setSetpoint(setpoint_);
     launcherPIDSubsystem_.enable();
     isFinished_ = true;

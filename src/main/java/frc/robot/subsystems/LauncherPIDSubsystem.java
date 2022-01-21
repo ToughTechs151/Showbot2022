@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 import frc.robot.Constants;
 
 public class LauncherPIDSubsystem extends PIDSubsystem {
-  private MotorController launcherMotor_;
+  private Talon launcherMotor_;
   private Encoder launcherEncoder_;
   private Random randomizer_ = new Random();
   private double currentSpeed_;
@@ -26,15 +26,14 @@ public class LauncherPIDSubsystem extends PIDSubsystem {
     super(new PIDController(Constants.kPl, Constants.kIl, Constants.kDl));
     launcherMotor_ = new Talon(Constants.LAUNCHER_MOTOR);
     launcherEncoder_ = new Encoder(Constants.LAUNCHER_ENCODER_A, Constants.LAUNCHER_ENCODER_B);
-    //launcherEncoder_.setPIDSourceType(PIDSourceType.kRate);
     setSetpoint(0);
-    //setAbsoluteTolerance(0);
     disable();    
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    super.periodic();
   }
 
   @Override
@@ -65,7 +64,7 @@ public class LauncherPIDSubsystem extends PIDSubsystem {
    * 9.549 is a conversion factor from rad/sec (units of the getRate() method) to rev/min (units of the setpoint)
    * @return
    */
-  private double getSpeed() {
+  private double getRate() {
     return launcherEncoder_.getRate() / 9.549;
   }
 }

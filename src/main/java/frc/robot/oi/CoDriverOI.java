@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.commands.ChangeLauncherSpeedCommand;
-import frc.robot.commands.DisableElevatorCommand;
+import frc.robot.commands.DisableLauncherCommand;
 import frc.robot.commands.IncrementHopperCommand;
 import frc.robot.commands.ReleaseBallPerSecondThroughHopperCommandGroup;
 import frc.robot.commands.ReleaseBallThroughCartridgeCommandGroup;
@@ -41,7 +41,7 @@ public class CoDriverOI extends OI {
         a.whenPressed(new ChangeLauncherSpeedCommand(-1500, robotContainer));
 
         b = new JoystickButton(joystick, Constants.B);
-        b.whenPressed(new DisableElevatorCommand(robotContainer));
+        b.whenPressed(new DisableLauncherCommand(robotContainer));
 
         b = new JoystickButton(joystick, Constants.B);
         y = new JoystickButton(joystick, Constants.Y);
