@@ -80,7 +80,7 @@ private double turnGain = 0.75;
 
   /** Creates a new ChassisSubsystem. */
   public ChassisSubsystem() {
-    rightMotors_.setInverted(true);
+    leftMotors_.setInverted(true);
   }
 
   @Override
