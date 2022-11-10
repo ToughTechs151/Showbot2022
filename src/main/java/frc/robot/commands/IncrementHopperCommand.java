@@ -4,12 +4,12 @@
 
 package frc.robot.commands;
 
-import java.util.TimerTask;
-import java.util.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.HopperSubsystem;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class IncrementHopperCommand extends CommandBase {
   private Timer timer_;
@@ -32,13 +32,15 @@ public class IncrementHopperCommand extends CommandBase {
   @Override
   public void initialize() {
     timer_ = new Timer();
-    timer_.schedule(new TimerTask() {
-      @Override
-      public void run() {
-        SmartDashboard.putString("Hopper status", "***Hopper Jammed***");
-        end(false);
-      }
-    }, 750L);
+    timer_.schedule(
+        new TimerTask() {
+          @Override
+          public void run() {
+            SmartDashboard.putString("Hopper status", "***Hopper Jammed***");
+            end(false);
+          }
+        },
+        750L);
     initialState_ = hopperSubsystem_.getHopperSwitchState();
     lastState_ = hopperSubsystem_.getHopperSwitchState();
     increment_ = 0;
@@ -48,7 +50,7 @@ public class IncrementHopperCommand extends CommandBase {
   @Override
   public void execute() {
     thisState_ = hopperSubsystem_.getHopperSwitchState();
-    if(thisState_ != lastState_) {
+    if (thisState_ != lastState_) {
       increment_++;
       lastState_ = thisState_;
     }
@@ -60,10 +62,8 @@ public class IncrementHopperCommand extends CommandBase {
   public void end(boolean interrupted) {
     hopperSubsystem_.driveHopper(0);
     timer_.cancel();
-    if (initialState_)
-      increment_ = 1;
-    else
-      increment_ = 2;
+    if (initialState_) increment_ = 1;
+    else increment_ = 2;
   }
 
   // Returns true when the command should end.

@@ -4,15 +4,13 @@
 
 package frc.robot.subsystems;
 
-import java.util.Random;
-
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 import frc.robot.Constants;
+import java.util.Random;
 
 public class LauncherPIDSubsystem extends PIDSubsystem {
   private Talon launcherMotor_;
@@ -20,14 +18,14 @@ public class LauncherPIDSubsystem extends PIDSubsystem {
   private Random randomizer_ = new Random();
   private double currentSpeed_;
   private double currentOutput_;
-  
+
   /** Creates a new LauncherPIDSubsystem. */
   public LauncherPIDSubsystem() {
     super(new PIDController(Constants.kPl, Constants.kIl, Constants.kDl));
     launcherMotor_ = new Talon(Constants.LAUNCHER_MOTOR);
     launcherEncoder_ = new Encoder(Constants.LAUNCHER_ENCODER_A, Constants.LAUNCHER_ENCODER_B);
     setSetpoint(0);
-    disable();    
+    disable();
   }
 
   @Override
@@ -53,8 +51,9 @@ public class LauncherPIDSubsystem extends PIDSubsystem {
     double initialGap = currentOutput_;
     double gap = initialGap;
     double initialTime = System.currentTimeMillis();
-    while(gap > 0) {
-      double newOutput = initialGap - (1000 - (System.currentTimeMillis()-initialTime)) * initialGap;
+    while (gap > 0) {
+      double newOutput =
+          initialGap - (1000 - (System.currentTimeMillis() - initialTime)) * initialGap;
       gap = newOutput;
       launcherMotor_.set(newOutput);
     }
@@ -62,7 +61,9 @@ public class LauncherPIDSubsystem extends PIDSubsystem {
   }
 
   /**
-   * 9.549 is a conversion factor from rad/sec (units of the getRate() method) to rev/min (units of the setpoint)
+   * 9.549 is a conversion factor from rad/sec (units of the getRate() method) to rev/min (units of
+   * the setpoint)
+   *
    * @return
    */
   private double getRate() {

@@ -4,13 +4,14 @@
 
 package frc.robot;
 
-import java.rmi.dgc.Lease;
-
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.shuffleboard.EventImportance;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.commands.DriveWithJoystickCommand;
 import frc.robot.oi.CoDriverOI;
 import frc.robot.oi.DriverOI;
@@ -18,9 +19,6 @@ import frc.robot.subsystems.CartridgeSubsystem;
 import frc.robot.subsystems.ChassisSubsystem;
 import frc.robot.subsystems.HopperSubsystem;
 import frc.robot.subsystems.LauncherPIDSubsystem;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -34,7 +32,7 @@ public class RobotContainer {
   private final LauncherPIDSubsystem launcherPIDSubsystem_ = new LauncherPIDSubsystem();
   private final CartridgeSubsystem cartridgeSubsystem_ = new CartridgeSubsystem();
   private final HopperSubsystem hopperSubsystem_ = new HopperSubsystem();
-  private DriverOI driverOI_ = null; 
+  private DriverOI driverOI_ = null;
   private CoDriverOI coDriverOI_ = null;
   private PowerDistribution pdp = new PowerDistribution();
 
@@ -88,35 +86,50 @@ public class RobotContainer {
 
   /**
    * retrieves the driver operator interface
+   *
    * @return
    */
-  public DriverOI getDriverOi() { return driverOI_; }
+  public DriverOI getDriverOi() {
+    return driverOI_;
+  }
 
   /**
    * retrieves the chassis subsystem
+   *
    * @return
    */
-  public ChassisSubsystem getChassisSubsystem() { return chassisSubsystem_; }
+  public ChassisSubsystem getChassisSubsystem() {
+    return chassisSubsystem_;
+  }
 
   /**
    * retrieves cartridge subsystem
+   *
    * @return
    */
-  public CartridgeSubsystem getCartridgeSubsystem() { return cartridgeSubsystem_; }
+  public CartridgeSubsystem getCartridgeSubsystem() {
+    return cartridgeSubsystem_;
+  }
 
   /**
    * retrieves launcher PID subsystem
+   *
    * @return
    */
-  public LauncherPIDSubsystem getLauncherPIDSubsystem() { return launcherPIDSubsystem_; }
+  public LauncherPIDSubsystem getLauncherPIDSubsystem() {
+    return launcherPIDSubsystem_;
+  }
 
   /**
    * retrieves hopper subsystem
+   *
    * @return
    */
-  public HopperSubsystem getHopperSubsystem() { return hopperSubsystem_; }
+  public HopperSubsystem getHopperSubsystem() {
+    return hopperSubsystem_;
+  }
 
-   /**
+  /**
    * Use this to get the PDP for data logging.
    *
    * @return The PowerDistribution module.

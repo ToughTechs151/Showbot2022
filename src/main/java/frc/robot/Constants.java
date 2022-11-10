@@ -14,61 +14,61 @@ package frc.robot;
  */
 public final class Constants {
 
-    // Scale Factor
-    public static final int SCALED_DRIVE = 2;
+  // Scale Factor
+  public static final int SCALED_DRIVE = 2;
 
-    //RELAY PORTS
-    public static final int LED_RELAY = 0;
+  // RELAY PORTS
+  public static final int LED_RELAY = 0;
 
-    // PWM Ports
-    public static int FRONT_LEFT_MOTOR = 3;
-    public static int FRONT_RIGHT_MOTOR = 6;
-    public static int REAR_LEFT_MOTOR = 2;
-    public static int REAR_RIGHT_MOTOR = 4;
+  // PWM Ports
+  public static int FRONT_LEFT_MOTOR = 3;
+  public static int FRONT_RIGHT_MOTOR = 6;
+  public static int REAR_LEFT_MOTOR = 2;
+  public static int REAR_RIGHT_MOTOR = 4;
 
-    // OI ports
-    public static int DRIVER_OI = 0;
-    public static int CODRIVE_OI = 1;
+  // OI ports
+  public static int DRIVER_OI = 0;
+  public static int CODRIVE_OI = 1;
 
-    //OI AXES
-    public static final int LEFT_JOYSTICK_X = 0;
-    public static final int LEFT_JOYSTICK_Y = 1;
-    public static final int RIGHT_JOYSTICK_X = 4;
-    public static final int RIGHT_JOYSTICK_Y = 5;
-    public static final int LEFT_TRIGGER = 2;
-    public static final int RIGHT_TRIGGER = 3;
-    public static final int RIGHT_JOYSTICK_VERTICAL_AXIS = 5;
+  // OI AXES
+  public static final int LEFT_JOYSTICK_X = 0;
+  public static final int LEFT_JOYSTICK_Y = 1;
+  public static final int RIGHT_JOYSTICK_X = 4;
+  public static final int RIGHT_JOYSTICK_Y = 5;
+  public static final int LEFT_TRIGGER = 2;
+  public static final int RIGHT_TRIGGER = 3;
+  public static final int RIGHT_JOYSTICK_VERTICAL_AXIS = 5;
 
-    //OI BUTTON PORTS
-	public static final int A = 1;
-    public static final int B = 2;
-    public static final int X = 3;
-	public static final int Y = 4;
-	public static final int LEFT_BUMPER = 5;
-	public static final int RIGHT_BUMPER = 6;
-	public static final int BACK = 7;
-	public static final int START = 8;
-	public static final int LEFT_JOYSTICK = 9;
-    public static final int RIGHT_JOYSTICK = 10;
-        
-    //hopper
-    public static final int HOPPER_SWITCH = 0;
-    public static final int HOPPER_MOTOR = 0;
+  // OI BUTTON PORTS
+  public static final int A = 1;
+  public static final int B = 2;
+  public static final int X = 3;
+  public static final int Y = 4;
+  public static final int LEFT_BUMPER = 5;
+  public static final int RIGHT_BUMPER = 6;
+  public static final int BACK = 7;
+  public static final int START = 8;
+  public static final int LEFT_JOYSTICK = 9;
+  public static final int RIGHT_JOYSTICK = 10;
 
-    //launcher
-    public static final int LAUNCHER_MOTOR = 7;
-	public static final int LAUNCHER_ENCODER_A = 1;
-	public static final int LAUNCHER_ENCODER_B = 2;
+  // hopper
+  public static final int HOPPER_SWITCH = 0;
+  public static final int HOPPER_MOTOR = 0;
 
-    //PID CONSTANTS
-	//public static final double kPl = 0.001;
-	//public static final double kIl = 0.0001;
-	//public static final double kDl = 0;    
-     //PID CONSTANTS
-	public static final double kPl = 0.0001;
-	public static final double kIl = 0.000;
-	public static final double kDl = 0;   
+  // launcher
+  public static final int LAUNCHER_MOTOR = 7;
+  public static final int LAUNCHER_ENCODER_A = 1;
+  public static final int LAUNCHER_ENCODER_B = 2;
 
-    // Run time options
+  // PID CONSTANTS
+  // public static final double kPl = 0.001;
+  // public static final double kIl = 0.0001;
+  // public static final double kDl = 0;
+  // PID CONSTANTS
+  public static final double kPl = 0.0001;
+  public static final double kIl = 0.000;
+  public static final double kDl = 0;
+
+  // Run time options
   public static final boolean LOG_JS_DATA = true;
 }

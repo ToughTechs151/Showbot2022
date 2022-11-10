@@ -14,7 +14,7 @@ import frc.robot.oi.OI;
 public class HopperSubsystem extends SubsystemBase {
   private MotorController hopperMotor_;
   private DigitalInput hopperSwitch_;
-  
+
   /** Creates a new HopperSubsystem. */
   public HopperSubsystem() {
     hopperMotor_ = new Talon(Constants.HOPPER_MOTOR);
@@ -40,8 +40,7 @@ public class HopperSubsystem extends SubsystemBase {
 
   private double deadzone(OI oi, int axis) {
     double rawAxis = oi.getJoystick().getRawAxis(axis);
-    if(Math.abs(rawAxis) > 0.04)
-      return rawAxis;
+    if (Math.abs(rawAxis) > 0.04) return rawAxis;
     return 0;
   }
 

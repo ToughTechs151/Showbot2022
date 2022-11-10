@@ -16,8 +16,6 @@ public class ReleaseBallPerSecondThroughHopperCommandGroup extends ParallelComma
   public ReleaseBallPerSecondThroughHopperCommandGroup(RobotContainer robotContainer) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(
-      new IncrementHopperCommand(0.35, robotContainer),
-      new WaitCommand(0.15));
+    addCommands(new IncrementHopperCommand(0.35, robotContainer), new WaitCommand(0.15));
   }
 }

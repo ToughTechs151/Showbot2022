@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.oi;
+
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
@@ -15,39 +16,37 @@ import frc.robot.commands.IncrementHopperCommand;
 import frc.robot.commands.ReleaseBallPerSecondThroughHopperCommandGroup;
 import frc.robot.commands.ReleaseBallThroughCartridgeCommandGroup;
 
-/**
- * CoDriver OI Controls
- */
+/** CoDriver OI Controls */
 public class CoDriverOI extends OI {
-    private RobotContainer robotContainer_ = null;
+  private RobotContainer robotContainer_ = null;
 
-    public CoDriverOI(int channel, RobotContainer robotContainer) {
-        super(channel);
-        robotContainer_ = robotContainer;
-        
-        start = new JoystickButton(joystick, Constants.START);
-        start.whenPressed(new IncrementHopperCommand(0.35, robotContainer));
+  public CoDriverOI(int channel, RobotContainer robotContainer) {
+    super(channel);
+    robotContainer_ = robotContainer;
 
-        back = new JoystickButton(joystick, Constants.BACK);
-        back.whenPressed(new IncrementHopperCommand(-0.35, robotContainer));
+    start = new JoystickButton(joystick, Constants.START);
+    start.whenPressed(new IncrementHopperCommand(0.35, robotContainer));
 
-        rightBumper = new JoystickButton(joystick, Constants.RIGHT_BUMPER);
-        rightBumper.whileHeld(new ReleaseBallPerSecondThroughHopperCommandGroup(robotContainer));
-    
-        leftBumper = new JoystickButton(joystick, Constants.LEFT_BUMPER);    
-        leftBumper.whenPressed(new ReleaseBallThroughCartridgeCommandGroup());
+    back = new JoystickButton(joystick, Constants.BACK);
+    back.whenPressed(new IncrementHopperCommand(-0.35, robotContainer));
 
-        a = new JoystickButton(joystick, Constants.A);
-        a.whenPressed(new ChangeLauncherSpeedCommand(-50, robotContainer));
+    rightBumper = new JoystickButton(joystick, Constants.RIGHT_BUMPER);
+    rightBumper.whileHeld(new ReleaseBallPerSecondThroughHopperCommandGroup(robotContainer));
 
-        b = new JoystickButton(joystick, Constants.B);
-        b.whenPressed(new DisableLauncherCommand(robotContainer));
+    leftBumper = new JoystickButton(joystick, Constants.LEFT_BUMPER);
+    leftBumper.whenPressed(new ReleaseBallThroughCartridgeCommandGroup());
 
-        b = new JoystickButton(joystick, Constants.B);
-        y = new JoystickButton(joystick, Constants.Y);
-        x = new JoystickButton(joystick, Constants.X);
-    
-        leftJoystick = new JoystickButton(joystick, Constants.LEFT_JOYSTICK);
-        rightJoystick = new JoystickButton(joystick, Constants.RIGHT_JOYSTICK);
-    }
+    a = new JoystickButton(joystick, Constants.A);
+    a.whenPressed(new ChangeLauncherSpeedCommand(-50, robotContainer));
+
+    b = new JoystickButton(joystick, Constants.B);
+    b.whenPressed(new DisableLauncherCommand(robotContainer));
+
+    b = new JoystickButton(joystick, Constants.B);
+    y = new JoystickButton(joystick, Constants.Y);
+    x = new JoystickButton(joystick, Constants.X);
+
+    leftJoystick = new JoystickButton(joystick, Constants.LEFT_JOYSTICK);
+    rightJoystick = new JoystickButton(joystick, Constants.RIGHT_JOYSTICK);
+  }
 }
