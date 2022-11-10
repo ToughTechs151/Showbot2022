@@ -7,7 +7,10 @@ package frc.robot;
 import java.rmi.dgc.Lease;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.shuffleboard.EventImportance;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import frc.robot.commands.DriveWithJoystickCommand;
 import frc.robot.oi.CoDriverOI;
 import frc.robot.oi.DriverOI;
@@ -16,6 +19,7 @@ import frc.robot.subsystems.ChassisSubsystem;
 import frc.robot.subsystems.HopperSubsystem;
 import frc.robot.subsystems.LauncherPIDSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 /**
@@ -32,9 +36,29 @@ public class RobotContainer {
   private final HopperSubsystem hopperSubsystem_ = new HopperSubsystem();
   private DriverOI driverOI_ = null; 
   private CoDriverOI coDriverOI_ = null;
+  private PowerDistribution pdp = new PowerDistribution();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+
+    // Set the scheduler to log Shuffleboard events for command initialize,
+    // interrupt, finish
+    CommandScheduler.getInstance()
+        .onCommandInitialize(
+            command ->
+                Shuffleboard.addEventMarker(
+                    "Command initialized", command.getName(), EventImportance.kNormal));
+    CommandScheduler.getInstance()
+        .onCommandInterrupt(
+            command ->
+                Shuffleboard.addEventMarker(
+                    "Command interrupted", command.getName(), EventImportance.kNormal));
+    CommandScheduler.getInstance()
+        .onCommandFinish(
+            command ->
+                Shuffleboard.addEventMarker(
+                    "Command finished", command.getName(), EventImportance.kNormal));
+
     // Configure the button bindings
     configureButtonBindings();
 
@@ -91,4 +115,23 @@ public class RobotContainer {
    * @return
    */
   public HopperSubsystem getHopperSubsystem() { return hopperSubsystem_; }
+
+   /**
+   * Use this to get the PDP for data logging.
+   *
+   * @return The PowerDistribution module.
+   */
+  public PowerDistribution getPdp() {
+    return this.pdp;
+  }
+
+  /** Returns the driver. */
+  public DriverOI getDriver() {
+    return this.driverOI_;
+  }
+
+  /** Returns the driver. */
+  public CoDriverOI getCoDriver() {
+    return this.coDriverOI_;
+  }
 }
