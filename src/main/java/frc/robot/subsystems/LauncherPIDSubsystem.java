@@ -45,6 +45,7 @@ public class LauncherPIDSubsystem extends PIDSubsystem {
 
   @Override
   public double getMeasurement() {
+    SmartDashboard.putNumber("Launcher Rate", launcherEncoder_.getRate());
     return launcherEncoder_.getRate();
   }
 

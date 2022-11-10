@@ -61,7 +61,11 @@ public final class Constants {
 	public static final int LAUNCHER_ENCODER_B = 2;
 
     //PID CONSTANTS
-	public static final double kPl = 0.001;
-	public static final double kIl = 0.0001;
-	public static final double kDl = 0;    
+	//public static final double kPl = 0.001;
+	//public static final double kIl = 0.0001;
+	//public static final double kDl = 0;    
+     //PID CONSTANTS
+	public static final double kPl = 0.0001;
+	public static final double kIl = 0.000;
+	public static final double kDl = 0;   
 }
