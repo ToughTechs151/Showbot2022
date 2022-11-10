@@ -68,4 +68,7 @@ public final class Constants {
 	public static final double kPl = 0.0001;
 	public static final double kIl = 0.000;
 	public static final double kDl = 0;   
+
+    // Run time options
+  public static final boolean LOG_JS_DATA = true;
 }
