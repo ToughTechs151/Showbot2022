@@ -7,6 +7,8 @@ package frc.robot.subsystems;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 import frc.robot.Constants;
@@ -26,6 +28,8 @@ public class LauncherPIDSubsystem extends PIDSubsystem {
     launcherEncoder_ = new Encoder(Constants.LAUNCHER_ENCODER_A, Constants.LAUNCHER_ENCODER_B);
     setSetpoint(0);
     disable();
+    ShuffleboardTab sbTabRobot = Shuffleboard.getTab("Robot");
+    sbTabRobot.add("Launcher Pid", this);
   }
 
   @Override
