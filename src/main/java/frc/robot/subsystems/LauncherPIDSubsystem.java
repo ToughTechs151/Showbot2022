@@ -45,8 +45,9 @@ public class LauncherPIDSubsystem extends PIDSubsystem {
 
   @Override
   public double getMeasurement() {
-    SmartDashboard.putNumber("Launcher Rate", launcherEncoder_.getRate());
-    return launcherEncoder_.getRate();
+    SmartDashboard.putNumber("Launcher Rate", getRate());
+    SmartDashboard.putNumber("Encoder Count", launcherEncoder_.getRaw());
+    return getRate();
   }
 
   public void stop() {
@@ -66,6 +67,13 @@ public class LauncherPIDSubsystem extends PIDSubsystem {
    * @return
    */
   private double getRate() {
-    return launcherEncoder_.getRate() / 9.549;
+    double rate = launcherEncoder_.getRate() / 9.549;
+    //SmartDashboard.putNumber("Encoder Speed", rate);
+    return rate;
+  }
+
+  public void setspeed(double d) {
+    launcherMotor_.set(d);
+    SmartDashboard.putNumber("Encoder Speed", getRate());
   }
 }

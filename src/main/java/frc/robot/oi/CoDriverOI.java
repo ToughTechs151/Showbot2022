@@ -38,7 +38,7 @@ public class CoDriverOI extends OI {
         leftBumper.whenPressed(new ReleaseBallThroughCartridgeCommandGroup());
 
         a = new JoystickButton(joystick, Constants.A);
-        a.whenPressed(new ChangeLauncherSpeedCommand(-50, robotContainer));
+        a.whenPressed(new ChangeLauncherSpeedCommand(-300, robotContainer));
 
         b = new JoystickButton(joystick, Constants.B);
         b.whenPressed(new DisableLauncherCommand(robotContainer));

@@ -65,7 +65,7 @@ public final class Constants {
 	//public static final double kIl = 0.0001;
 	//public static final double kDl = 0;    
      //PID CONSTANTS
-	public static final double kPl = 0.0001;
+	public static final double kPl = 0.1;
 	public static final double kIl = 0.000;
 	public static final double kDl = 0;   
 }

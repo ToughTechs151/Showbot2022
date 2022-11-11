@@ -33,6 +33,7 @@ public class ChangeLauncherSpeedCommand extends CommandBase {
     SmartDashboard.putNumber("ChangeLauncherSpeedCommand", setpoint_);
     launcherPIDSubsystem_.setSetpoint(setpoint_);
     launcherPIDSubsystem_.enable();
+    //launcherPIDSubsystem_.setspeed(0.5);
     isFinished_ = true;
   }
 
