@@ -66,7 +66,7 @@ public class LauncherPIDSubsystem extends PIDSubsystem {
   /**
    * 9.549 is a conversion factor from rad/sec (units of the getRate() method) to rev/min (units of the setpoint)
    * @return
-   */
+   */ 
   private double getRate() {
     double rate = launcherEncoder_.getRate();// / 9.549;
     //SmartDashboard.putNumber("Encoder Speed", rate);

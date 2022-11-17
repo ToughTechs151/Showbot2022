@@ -19,6 +19,7 @@ import frc.robot.commands.ReleaseBallThroughCartridgeCommandGroup;
  * CoDriver OI Controls
  */
 public class CoDriverOI extends OI {
+    private static final double LAUNCHER_SPEED = 0;
     private RobotContainer robotContainer_ = null;
 
     public CoDriverOI(int channel, RobotContainer robotContainer) {
@@ -39,7 +40,7 @@ public class CoDriverOI extends OI {
 
         a = new JoystickButton(joystick, Constants.A);
         // rpm
-        a.whenPressed(new ChangeLauncherSpeedCommand(-5, robotContainer));
+        a.whenPressed(new ChangeLauncherSpeedCommand(Constants.LAUNCHER_SPEED, robotContainer));
 
         b = new JoystickButton(joystick, Constants.B);
         b.whenPressed(new DisableLauncherCommand(robotContainer));
