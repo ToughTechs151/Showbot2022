@@ -28,6 +28,7 @@ public class LauncherPIDSubsystem extends PIDSubsystem {
     launcherEncoder_ = new Encoder(Constants.LAUNCHER_ENCODER_A, Constants.LAUNCHER_ENCODER_B);
     setSetpoint(0);
     disable();    
+    launcherEncoder_.setDistancePerPulse(1.0/2048.0); 
   }
 
   @Override
@@ -67,7 +68,7 @@ public class LauncherPIDSubsystem extends PIDSubsystem {
    * @return
    */
   private double getRate() {
-    double rate = launcherEncoder_.getRate() / 9.549;
+    double rate = launcherEncoder_.getRate();// / 9.549;
     //SmartDashboard.putNumber("Encoder Speed", rate);
     return rate;
   }
